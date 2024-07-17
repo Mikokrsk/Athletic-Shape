@@ -7,12 +7,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
+    [SerializeField] private CanvasGroup _finishLevelCanvasGroup;
+
     private void OnEnable()
     {
         Time.timeScale = 1.0f;
     }
-
-    [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
 
     public void LoadLevel(int id)
     {
@@ -36,6 +37,21 @@ public class GameManager : MonoBehaviour
         StopPause();
         _settingsMenuCanvasGroup.alpha = 0;
         _settingsMenuCanvasGroup.blocksRaycasts = false;
+    }
+
+    public void OpenFinishLevelMenu()
+    {
+        StartPause();
+        _finishLevelCanvasGroup.alpha = 1;
+        _finishLevelCanvasGroup.blocksRaycasts = true;
+    }
+
+    public void CloseFinishLevelMenu()
+    {
+        StopPause();
+        _finishLevelCanvasGroup.alpha = 0;
+        _finishLevelCanvasGroup.blocksRaycasts = false;
+        GoToMainMenu();
     }
 
     public void GoToMainMenu()
