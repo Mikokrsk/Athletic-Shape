@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerSizeController : MonoBehaviour
 {
     [SerializeField] private Transform _playerTransform;
     [SerializeField] private float _sizeChangeSpeed;
