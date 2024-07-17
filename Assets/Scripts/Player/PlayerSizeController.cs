@@ -13,26 +13,6 @@ public class PlayerSizeController : MonoBehaviour
 
     private Coroutine _sizeChangeCoroutine;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            if (_sizeChangeCoroutine != null)
-            {
-                StopCoroutine(_sizeChangeCoroutine);
-            }
-            _sizeChangeCoroutine = StartCoroutine(ChangePlayerScale(1));
-        }
-        else if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            if (_sizeChangeCoroutine != null)
-            {
-                StopCoroutine(_sizeChangeCoroutine);
-            }
-            _sizeChangeCoroutine = StartCoroutine(ChangePlayerScale(-1));
-        }
-    }
-
     /*    void ChangePlayerScale(float direction)
         {
             var newScaleY = _pivotTransform.transform.localScale.y + direction * _sizeChangeSpeed * Time.deltaTime;
@@ -43,6 +23,24 @@ public class PlayerSizeController : MonoBehaviour
                     new Vector3(_pivotTransform.transform.localScale.x, newScaleY, _pivotTransform.transform.localScale.z);
             }
         }*/
+
+    public void Grow()
+    {
+        if (_sizeChangeCoroutine != null)
+        {
+            StopCoroutine(_sizeChangeCoroutine);
+        }
+        _sizeChangeCoroutine = StartCoroutine(ChangePlayerScale(1));
+    }
+
+    public void Shrink()
+    {
+        if (_sizeChangeCoroutine != null)
+        {
+            StopCoroutine(_sizeChangeCoroutine);
+        }
+        _sizeChangeCoroutine = StartCoroutine(ChangePlayerScale(-1));
+    }
 
     private IEnumerator ChangePlayerScale(float direction)
     {
@@ -62,7 +60,7 @@ public class PlayerSizeController : MonoBehaviour
         }
     }
 
-    public float GetCurrentSizeY()
+    public float GetCurrentSize()
     {
         return _pivotTransform.localScale.y;
     }

@@ -2,24 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+public abstract class Obstacle : MonoBehaviour
 {
-    [SerializeField] private float _minSize;
-    [SerializeField] private float _maxSize;
+    [SerializeField] protected Vector3 _spawnPosition;
+    //[SerializeField] protected Quaternion _spawnRotation;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        var scale = collision.transform.GetComponentInChildren<PlayerSizeController>().GetCurrentSizeY();
-
-        if (scale >= _minSize && scale <= _maxSize)
-        {
-            //TODO Jump or another actions
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            //TODO Game Over
-            Debug.Log("GameOver");
-        }
-    }
+    protected abstract void OnCollisionEnter(Collision collision);
 }
