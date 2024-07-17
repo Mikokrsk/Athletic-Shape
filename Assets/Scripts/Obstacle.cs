@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Obstacle : MonoBehaviour
 {
-    [SerializeField] private float _minDistance;
-    [SerializeField] private float _maxDistance;
+    [SerializeField] private float _minSize;
+    [SerializeField] private float _maxSize;
 
     private void OnCollisionEnter(Collision collision)
     {
-        var scaleY = collision.transform.GetComponentInChildren<PlayerSizeController>().GetCurrentSizeY();
+        var scale = collision.transform.GetComponentInChildren<PlayerSizeController>().GetCurrentSizeY();
 
-        if (scaleY >= _minDistance && scaleY <= _maxDistance)
+        if (scale >= _minSize && scale <= _maxSize)
         {
             //TODO Jump or another actions
             gameObject.SetActive(false);

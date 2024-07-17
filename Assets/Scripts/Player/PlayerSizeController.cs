@@ -6,8 +6,8 @@ public class PlayerSizeController : MonoBehaviour
 {
     [SerializeField] private Transform _pivotTransform;
     [SerializeField] private float _sizeChangeSpeed;
-    [SerializeField] private float _minSizeY;
-    [SerializeField] private float _maxSizeY;
+    [SerializeField] private float _minSize;
+    [SerializeField] private float _maxSize;
     [SerializeField] private float _duration;
     [SerializeField] private float _maxDuration;
 
@@ -50,12 +50,12 @@ public class PlayerSizeController : MonoBehaviour
 
         while (_duration > 0)
         {
-            var newScaleY = _pivotTransform.transform.localScale.y + direction * _sizeChangeSpeed * Time.deltaTime;
+            var newScale = _pivotTransform.transform.localScale.x + direction * _sizeChangeSpeed * Time.deltaTime;
 
-            if (newScaleY <= _maxSizeY && newScaleY >= _minSizeY)
+            if (newScale <= _maxSize && newScale >= _minSize)
             {
                 _pivotTransform.transform.localScale =
-                    new Vector3(_pivotTransform.transform.localScale.x, newScaleY, _pivotTransform.transform.localScale.z);
+                    new Vector3(newScale, newScale, newScale);
             }
             yield return null;
             _duration -= Time.deltaTime;
