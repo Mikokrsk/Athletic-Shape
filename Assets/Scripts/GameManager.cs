@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
     [SerializeField] private CanvasGroup _finishLevelCanvasGroup;
+    [SerializeField] private CanvasGroup _giftMenuCanvasGroup;
 
     private void OnEnable()
     {
@@ -37,6 +38,19 @@ public class GameManager : MonoBehaviour
         StopPause();
         _settingsMenuCanvasGroup.alpha = 0;
         _settingsMenuCanvasGroup.blocksRaycasts = false;
+    }
+
+    public void OpenGiftMenu()
+    {
+        _giftMenuCanvasGroup.alpha = 1;
+        _giftMenuCanvasGroup.blocksRaycasts = true;
+        var wheel = _giftMenuCanvasGroup.GetComponentInChildren<WheelOfFortune>();
+        wheel.GenerateSectors(5);
+    }
+    public void CloseGiftMenu()
+    {
+        _giftMenuCanvasGroup.alpha = 0;
+        _giftMenuCanvasGroup.blocksRaycasts = false;
     }
 
     public void OpenFinishLevelMenu()
