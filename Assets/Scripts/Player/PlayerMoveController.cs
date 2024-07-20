@@ -6,6 +6,7 @@ public class PlayerMoveController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _moveSpeed = 1f;
+    [SerializeField] private bool _isMoving = false;
 
     public float GetMoveSpeed()
     {
@@ -20,14 +21,18 @@ public class PlayerMoveController : MonoBehaviour
         }
     }
 
-    void Awake()
+    void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _isMoving = true;
     }
 
     void FixedUpdate()
     {
-        Move();
+        if (_isMoving)
+        {
+            Move();
+        }
     }
 
     void Move()
@@ -35,5 +40,12 @@ public class PlayerMoveController : MonoBehaviour
         Vector3 movement = transform.forward * _moveSpeed;
 
         _rb.velocity = movement;
+    }
+
+    public void StopMove()
+    {
+        _isMoving = false;
+        _rb.velocity = Vector3.zero;
+        Debug.Log("Stop");
     }
 }

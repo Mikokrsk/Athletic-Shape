@@ -10,7 +10,8 @@ public class PlayerSizeController : MonoBehaviour
     [SerializeField] private float _maxSize;
     [SerializeField] private float _duration;
     [SerializeField] private float _maxDuration;
-
+    //[SerializeField] private float _maxSmallSizePlayer;
+    [SerializeField] private float _minLargeSizePlayer;
     private Coroutine _sizeChangeCoroutine;
 
     /*    void ChangePlayerScale(float direction)
@@ -62,6 +63,6 @@ public class PlayerSizeController : MonoBehaviour
 
     public float GetCurrentSize()
     {
-        return _pivotTransform.localScale.y;
+        return _pivotTransform.localScale.x;
     }
 }

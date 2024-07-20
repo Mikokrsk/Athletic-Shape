@@ -4,21 +4,10 @@ using UnityEngine;
 
 public class JumpableObstacle : Obstacle
 {
-    [SerializeField] private float _minSize;
+    [SerializeField] private float _targetMinSize;
 
-    protected override void OnCollisionEnter(Collision collision)
+    public float GetTargetMinSize()
     {
-        var scale = collision.transform.GetComponentInChildren<PlayerSizeController>().GetCurrentSize();
-
-        if (scale >= _minSize)
-        {
-            //TODO Jump or another actions
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            //TODO Game Over
-            Debug.Log("GameOver");
-        }
+        return _targetMinSize;
     }
 }

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SimpleObstacle : Obstacle
 {
-    protected override void OnCollisionEnter(Collision collision)
+    [SerializeField] private float _targetMaxSize;
+
+    public float GetTargetMaxSize()
     {
-        //TODO Game Over
-        Debug.Log("GameOver");
+        return _targetMaxSize;
     }
 }

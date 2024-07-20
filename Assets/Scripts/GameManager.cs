@@ -1,19 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AdaptivePerformance;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
     [SerializeField] private CanvasGroup _finishLevelCanvasGroup;
     [SerializeField] private CanvasGroup _giftMenuCanvasGroup;
+    [SerializeField] private Button _growButton;
+    [SerializeField] private Button _shrinkButton;
+
+    public static GameManager _instance;
 
     private void OnEnable()
     {
         Time.timeScale = 1.0f;
+    }
+
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+        }
     }
 
     public void LoadLevel(int id)
@@ -90,5 +104,11 @@ public class GameManager : MonoBehaviour
     private void StopPause()
     {
         Time.timeScale = 1;
+    }
+
+    public void GameOver()
+    {
+        _growButton.interactable = false;
+        _shrinkButton.interactable = false;
     }
 }

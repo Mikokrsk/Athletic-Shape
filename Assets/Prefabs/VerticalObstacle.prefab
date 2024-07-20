@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 5540964201227961853}
   - component: {fileID: 7791217560574633304}
   - component: {fileID: 2195713906942113461}
-  - component: {fileID: 2891198367670175014}
-  - component: {fileID: 4321765589212670451}
   m_Layer: 0
   m_Name: UpObstacle (2)
   m_TagString: Untagged
@@ -85,40 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2891198367670175014
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3951524375014304607}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4321765589212670451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3951524375014304607}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9dc946fdfb0fe4a47af7b8a6002d8931, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPosition: {x: 0, y: 2, z: 0}
 --- !u!1 &4244780282965734828
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3433858211915470209}
+  - component: {fileID: 9142048104296545914}
+  - component: {fileID: 7502430934137474906}
   m_Layer: 0
   m_Name: VerticalObstacle
   m_TagString: Untagged
@@ -152,6 +118,41 @@ Transform:
   - {fileID: 5540964201227961853}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9142048104296545914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244780282965734828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc946fdfb0fe4a47af7b8a6002d8931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPosition: {x: 0, y: 2, z: 0}
+  _targetMaxSize: 1.25
+--- !u!65 &7502430934137474906
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4244780282965734828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2, y: 2.5, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5458248335572445055
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +164,6 @@ GameObject:
   - component: {fileID: 2486923607169970580}
   - component: {fileID: 1968402782868207020}
   - component: {fileID: 6852903102529247222}
-  - component: {fileID: 5796566229870905201}
   - component: {fileID: 4960094357817992898}
   m_Layer: 0
   m_Name: UpObstacle (1)
@@ -237,27 +237,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5796566229870905201
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5458248335572445055}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &4960094357817992898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -271,3 +250,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spawnPosition: {x: 0, y: 2, z: 0}
+  _targetMaxSize: 0
