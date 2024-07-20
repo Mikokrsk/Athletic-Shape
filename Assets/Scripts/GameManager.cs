@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
     [SerializeField] private CanvasGroup _finishLevelCanvasGroup;
+    [SerializeField] private CanvasGroup _gameOverCanvasGroup;
     [SerializeField] private CanvasGroup _giftMenuCanvasGroup;
     [SerializeField] private Button _growButton;
     [SerializeField] private Button _shrinkButton;
@@ -46,7 +47,6 @@ public class GameManager : MonoBehaviour
         _settingsMenuCanvasGroup.alpha = 1;
         _settingsMenuCanvasGroup.blocksRaycasts = true;
     }
-
     public void CloseSettingsMenu()
     {
         StopPause();
@@ -73,7 +73,6 @@ public class GameManager : MonoBehaviour
         _finishLevelCanvasGroup.alpha = 1;
         _finishLevelCanvasGroup.blocksRaycasts = true;
     }
-
     public void CloseFinishLevelMenu()
     {
         StopPause();
@@ -100,7 +99,6 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0;
     }
-
     private void StopPause()
     {
         Time.timeScale = 1;
@@ -110,5 +108,7 @@ public class GameManager : MonoBehaviour
     {
         _growButton.interactable = false;
         _shrinkButton.interactable = false;
+        _gameOverCanvasGroup.alpha = 1;
+        _gameOverCanvasGroup.blocksRaycasts = true;
     }
 }

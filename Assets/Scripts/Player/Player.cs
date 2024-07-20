@@ -67,6 +67,7 @@ public class Player : MonoBehaviour
 
         if (obtacle != null)
         {
+            obtacle.DisableCollider();
             CheckCollision(obtacle);
         }
     }

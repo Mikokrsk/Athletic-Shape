@@ -5,4 +5,10 @@ using UnityEngine;
 public abstract class Obstacle : MonoBehaviour
 {
     [SerializeField] protected Vector3 _spawnPosition;
+
+    public virtual void DisableCollider()
+    {
+        var collider = GetComponent<Collider>();
+        collider.enabled = false;
+    }
 }
