@@ -1564,7 +1564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 560076608}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06938671, y: 0, z: 0, w: 0.9975899}
+  m_LocalRotation: {x: 0.010202486, y: 0, z: 0, w: 0.99994797}
   m_LocalPosition: {x: 0, y: 1.65, z: -4.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2756,7 +2756,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06938671, y: 0, z: 0, w: 0.9975899}
+  m_LocalRotation: {x: 0.010202486, y: 0, z: 0, w: 0.99994797}
   m_LocalPosition: {x: 0, y: 1.65, z: -4.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3839,7 +3839,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settingsMenuCanvasGroup: {fileID: 825739116}
   _finishLevelCanvasGroup: {fileID: 1827668591}
-  _prizeMenuCanvasGroup: {fileID: 1001549257}
+  _giftMenuCanvasGroup: {fileID: 0}
 --- !u!4 &1304620214
 Transform:
   m_ObjectHideFlags: 0
@@ -6206,11 +6206,6 @@ PrefabInstance:
     - target: {fileID: 8891044760982423356, guid: 978b0a1577e678e42bc52c1db6df78a0,
         type: 3}
       propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 8891044760982423356, guid: 978b0a1577e678e42bc52c1db6df78a0,
-        type: 3}
-      propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
