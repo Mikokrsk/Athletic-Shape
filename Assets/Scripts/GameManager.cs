@@ -9,14 +9,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private CanvasGroup _settingsMenuCanvasGroup;
-    // [SerializeField] private CanvasGroup _finishLevelCanvasGroup;
-    [SerializeField] private CanvasGroup _gameOverCanvasGroup;
-    [SerializeField] private CanvasGroup _giftMenuCanvasGroup;
-    [SerializeField] private Button _growButton;
-    [SerializeField] private Button _shrinkButton;
-
     [SerializeField] private FinishLevelMenu _finishLevelMenu;
+    [SerializeField] private GameOverMenu _gameOverMenu;
+    [SerializeField] private WheelFortuneMenu _wheelFortuneMenu;
+    [SerializeField] private SettingsMenu _settingsMenu;
 
     public static GameManager Instance;
 
@@ -35,28 +31,12 @@ public class GameManager : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
-        StartPause();
-        _settingsMenuCanvasGroup.alpha = 1;
-        _settingsMenuCanvasGroup.blocksRaycasts = true;
-    }
-    public void CloseSettingsMenu()
-    {
-        StopPause();
-        _settingsMenuCanvasGroup.alpha = 0;
-        _settingsMenuCanvasGroup.blocksRaycasts = false;
+        _settingsMenu.EnableMenu();
     }
 
-    public void OpenGiftMenu()
+    public void OpenWheelFortuneMenu()
     {
-        _giftMenuCanvasGroup.alpha = 1;
-        _giftMenuCanvasGroup.blocksRaycasts = true;
-        var wheel = _giftMenuCanvasGroup.GetComponentInChildren<WheelOfFortune>();
-        wheel.GenerateSectors(5);
-    }
-    public void CloseGiftMenu()
-    {
-        _giftMenuCanvasGroup.alpha = 0;
-        _giftMenuCanvasGroup.blocksRaycasts = false;
+        _wheelFortuneMenu.EnableMenu();
     }
 
     public void Quit()
@@ -68,21 +48,9 @@ public class GameManager : MonoBehaviour
 #endif
     }
 
-    private void StartPause()
-    {
-        Time.timeScale = 0;
-    }
-    private void StopPause()
-    {
-        Time.timeScale = 1;
-    }
-
     public void GameOver()
     {
-        _growButton.interactable = false;
-        _shrinkButton.interactable = false;
-        _gameOverCanvasGroup.alpha = 1;
-        _gameOverCanvasGroup.blocksRaycasts = true;
+        _gameOverMenu.EnableMenu();
     }
 
     public void FinishLevel()
