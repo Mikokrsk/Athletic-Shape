@@ -6,34 +6,72 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] protected List<GameObject> _prefabObstacles;
-    [SerializeField] protected List<GameObject> _obstaclesList;
+    [SerializeField] protected GameObject _prefabFinishObstacle;
+    [SerializeField] protected List<Obstacle> _obstaclesList = new List<Obstacle>();
     [SerializeField] protected float _startSpawnPositionZ = 5f;
     [SerializeField] protected float _endSpawnPositionZ = 10f;
     [SerializeField] protected float _minDistanceBetweenObstacles = 1f;
     [SerializeField] protected float _maxDistanceBetweenObstacles = 3f;
 
-    private void Start()
+    public float GetStartSpawnPosition()
     {
-        _obstaclesList = new List<GameObject>();
-        SpawnObstacle();
+        return _startSpawnPositionZ;
+    }
+    public float GetEndSpawnPosition()
+    {
+        return _endSpawnPositionZ;
     }
 
-    protected void SpawnObstacle()
+    public void SetEndSpawnPosition(float roadLength)
     {
-        var prefabObstacle = GetRandomObstacle();
+        _endSpawnPositionZ = roadLength + _startSpawnPositionZ;
+    }
 
-        if (prefabObstacle != null)
+    public void SpawnObstacles()
+    {
+        var lastObstaclePositionZ = _startSpawnPositionZ;
+        int i = 0;
+        while (true)
         {
-            var obstacle = Instantiate(prefabObstacle, transform);
-            obstacle.transform.position = GetSpawnedObstaclePositon();
-            _obstaclesList.Add(obstacle);
+            if (_obstaclesList.Count() > 0)
+            {
+                lastObstaclePositionZ = _obstaclesList.Last().transform.position.z;
+            }
+
+            if (lastObstaclePositionZ + _minDistanceBetweenObstacles <= _endSpawnPositionZ)
+            {
+                SpawnRandomObstacle();
+            }
+            else
+            {
+                SpawnFinishObstacle();
+                break;
+            }
+            i++;
+            if (i > 1000)
+            {
+                break;
+            }
         }
+    }
 
-        var lastObstaclePositionZ = _obstaclesList.Last().transform.position.z;
+    protected void SpawnFinishObstacle()
+    {
+        var obstacle = Instantiate(_prefabFinishObstacle, transform).GetComponent<Obstacle>();
+        obstacle.transform.position = GetSpawnedObstaclePositon(obstacle);
+        _obstaclesList.Add(obstacle);
+    }
 
-        if (lastObstaclePositionZ + _minDistanceBetweenObstacles <= _endSpawnPositionZ)
+    protected void SpawnRandomObstacle()
+    {
+        var obstaclePrefab = GetRandomObstacle();
+
+        if (obstaclePrefab != null)
         {
-            SpawnObstacle();
+            var obstacle = Instantiate(obstaclePrefab, transform).GetComponent<Obstacle>();
+            obstacle.transform.position = GetSpawnedObstaclePositon(obstacle);
+            _obstaclesList.Add(obstacle);
+
         }
     }
 
@@ -47,28 +85,28 @@ public class ObstacleSpawner : MonoBehaviour
     protected float GetRandomDistanceBetweenObstacles()
     {
         var randomDistance = Random.Range(_minDistanceBetweenObstacles, _maxDistanceBetweenObstacles);
-        var lastObstaclePositionZ = _obstaclesList.Last().transform.position.z;
 
-        if (lastObstaclePositionZ + _maxDistanceBetweenObstacles <= _endSpawnPositionZ)
-        {
-            return randomDistance;
-        }
-        else
-        {
-            return _endSpawnPositionZ;
-        }
-
+        return randomDistance;
     }
 
-    protected Vector3 GetSpawnedObstaclePositon()
+    protected Vector3 GetSpawnedObstaclePositon(Obstacle obstacle)
     {
+        var targetSpawnPosition = obstacle.GetSpawnPosition();
+
         if (_obstaclesList.Count == 0)
         {
-            return new Vector3(0, 0, _startSpawnPositionZ);
+            return new Vector3(
+                targetSpawnPosition.x,
+                targetSpawnPosition.y,
+                _startSpawnPositionZ);
         }
         else
         {
-            return new Vector3(0, 0, _obstaclesList.Last().transform.position.z + GetRandomDistanceBetweenObstacles());
+            var lastObstacle = _obstaclesList.Last().transform;
+            return new Vector3(
+                targetSpawnPosition.x,
+                targetSpawnPosition.y,
+                lastObstacle.transform.position.z + GetRandomDistanceBetweenObstacles());
         }
     }
 }

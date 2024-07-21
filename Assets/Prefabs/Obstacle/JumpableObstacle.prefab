@@ -118,5 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8367f471aba37234a8bc25a344390b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPosition: {x: 0, y: 0, z: 0}
+  _spawnPosition: {x: 0, y: 0.45, z: 0}
   _targetMinSize: 1
