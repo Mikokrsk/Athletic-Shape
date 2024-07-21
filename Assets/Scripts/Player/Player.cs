@@ -52,13 +52,29 @@ public class Player : MonoBehaviour
                 GameOver();
             }
         }
+
+        if (obstacle is FinishObstacle)
+        {
+            FinishLevel();
+        }
     }
 
     private void GameOver()
     {
+        StopPlayer();
+        GameManager.Instance.GameOver();
+    }
+
+    private void FinishLevel()
+    {
+        StopPlayer();
+        GameManager.Instance.FinishLevel();
+    }
+
+    private void StopPlayer()
+    {
         _moveController.StopMove();
         _animationController.StopPlayAllAnimations();
-        GameManager._instance.GameOver();
     }
 
     private void OnTriggerEnter(Collider other)
