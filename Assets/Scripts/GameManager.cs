@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameOverMenu _gameOverMenu;
     [SerializeField] private WheelFortuneMenu _wheelFortuneMenu;
     [SerializeField] private SettingsMenu _settingsMenu;
+    [SerializeField] private SummaryMenu _summaryMenu;
 
     [SerializeField] private Player _player;
 
@@ -65,6 +66,16 @@ public class GameManager : MonoBehaviour
     public void CloseFinishLevelMenu()
     {
         CloseMenu(_finishLevelMenu);
+    }
+
+    public void OpenSummaryMenu(int amount)
+    {
+        _summaryMenu.SetSummary(amount);
+        OpenMenu(_summaryMenu);
+    }
+    public void CloseSummaryMenu()
+    {
+        CloseMenu(_summaryMenu);
     }
 
     private void OpenMenu(GameMenu gameMenu)

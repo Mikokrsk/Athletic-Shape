@@ -15,6 +15,8 @@ public class WheelOfFortune : MonoBehaviour
     private List<SectorBounds> _sectorBounds = new List<SectorBounds>();
 
     private int _numberOfSectors = 8;
+    [SerializeField] private int _minCostGift;
+    [SerializeField] private int _maxCostGift;
     [SerializeField] private float _spinDuration = 3f;
 
     [SerializeField] private bool _isSpinning = false;
@@ -49,7 +51,7 @@ public class WheelOfFortune : MonoBehaviour
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
 
             var prize = newSector.GetComponentInChildren<Gift>();
-            prize.cost = UnityEngine.Random.Range(1, 10);
+            prize.SetCost(UnityEngine.Random.Range(_minCostGift, _maxCostGift));
 
             var newPirzeAngle = -180 * sectorImage.fillAmount;
             prize.SetRotation(newPirzeAngle);
@@ -109,9 +111,9 @@ public class WheelOfFortune : MonoBehaviour
         }
 
         _isSpinning = false;
-        var prize1 = DetermineWinningSector();
+        var gift = DetermineWinningSector();
         _closeButton.interactable = true;
-        Debug.Log(prize1.cost);
+        GameManager.Instance.OpenSummaryMenu(gift.GetCost());
     }
 
     public Gift DetermineWinningSector()

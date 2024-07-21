@@ -362,7 +362,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 9076167192381498556}
-  cost: 0
+  _amount: 0
+  _amountText: {fileID: 7196134683961200463}
 --- !u!1 &8596523738607942791
 GameObject:
   m_ObjectHideFlags: 0
