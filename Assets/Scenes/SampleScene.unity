@@ -2372,9 +2372,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1304620213}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: CloseSettingsMenu
+      - m_Target: {fileID: 825739117}
+        m_TargetAssemblyTypeName: SettingsMenu, Assembly-CSharp
+        m_MethodName: DisableMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2849,6 +2849,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 825739115}
+  - component: {fileID: 825739117}
   - component: {fileID: 825739116}
   m_Layer: 5
   m_Name: SettingsMenu
@@ -2890,6 +2891,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &825739117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 825739114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c4aab2c93e9e04a8f345f9762f5706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 825739116}
 --- !u!1 &891669381
 GameObject:
   m_ObjectHideFlags: 0
@@ -3725,9 +3739,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1304620213}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: ClosePrizeMenu
+      - m_Target: {fileID: 1001549258}
+        m_TargetAssemblyTypeName: WheelFortuneMenu, Assembly-CSharp
+        m_MethodName: DisableMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3859,9 +3873,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1001549256}
+  - component: {fileID: 1001549258}
   - component: {fileID: 1001549257}
   m_Layer: 5
-  m_Name: GiftMenu
+  m_Name: WheelFortuneMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3902,6 +3917,20 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1001549258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001549255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f21752aba6d7f642818165466cfd2a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1001549257}
+  _wheelOfFortune: {fileID: 1630468441}
 --- !u!1 &1041774793
 GameObject:
   m_ObjectHideFlags: 0
@@ -4469,12 +4498,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cafa8ebe3c680f0478d2303c88d520b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _settingsMenuCanvasGroup: {fileID: 825739116}
-  _gameOverCanvasGroup: {fileID: 1928163472}
-  _giftMenuCanvasGroup: {fileID: 1001549257}
-  _growButton: {fileID: 357124129}
-  _shrinkButton: {fileID: 41139839}
   _finishLevelMenu: {fileID: 1827668592}
+  _gameOverMenu: {fileID: 1928163473}
+  _wheelFortuneMenu: {fileID: 1001549258}
+  _settingsMenu: {fileID: 825739117}
+  _player: {fileID: 1533947063}
 --- !u!4 &1304620214
 Transform:
   m_ObjectHideFlags: 0
@@ -6038,7 +6066,7 @@ GameObject:
   - component: {fileID: 1674186939}
   - component: {fileID: 1674186938}
   m_Layer: 5
-  m_Name: PrizeButton
+  m_Name: WheelFortuneButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6109,7 +6137,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1304620213}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: OpenPrizeMenu
+        m_MethodName: OpenWheelFortuneMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7094,6 +7122,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1928163471}
+  - component: {fileID: 1928163473}
   - component: {fileID: 1928163472}
   m_Layer: 5
   m_Name: GameOverMenu
@@ -7135,6 +7164,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
+--- !u!114 &1928163473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1928163470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98c2bd00b439aab4eb124beffee80f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasGroup: {fileID: 1928163472}
 --- !u!1 &1947328598
 GameObject:
   m_ObjectHideFlags: 0
@@ -7950,18 +7992,6 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: WheelOfFortune, Assembly-CSharp
         m_MethodName: SpinWheel
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

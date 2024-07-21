@@ -46,6 +46,9 @@ public class PlayerMoveController : MonoBehaviour
     {
         _isMoving = false;
         _rb.velocity = Vector3.zero;
-        Debug.Log("Stop");
+    }
+    public void RestoreMove()
+    {
+        _isMoving = true;
     }
 }

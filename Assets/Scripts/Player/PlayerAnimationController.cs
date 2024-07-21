@@ -19,8 +19,14 @@ public class PlayerAnimationController : MonoBehaviour
             _animator.SetTrigger(TRIGGER_JUMP_NAME);
         }
     }
+
     public void StopPlayAllAnimations()
     {
         _animator.enabled = false;
+    }
+
+    public void RestorePlayAllAnimatios()
+    {
+        _animator.enabled = true;
     }
 }

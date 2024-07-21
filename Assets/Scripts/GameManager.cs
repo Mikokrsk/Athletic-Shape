@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private WheelFortuneMenu _wheelFortuneMenu;
     [SerializeField] private SettingsMenu _settingsMenu;
 
+    [SerializeField] private Player _player;
+
     public static GameManager Instance;
 
     private void OnEnable()
@@ -31,12 +33,66 @@ public class GameManager : MonoBehaviour
 
     public void OpenSettingsMenu()
     {
-        _settingsMenu.EnableMenu();
+        OpenMenu(_settingsMenu);
+    }
+    public void CloseSettingsMenu()
+    {
+        CloseMenu(_settingsMenu);
     }
 
     public void OpenWheelFortuneMenu()
     {
-        _wheelFortuneMenu.EnableMenu();
+        OpenMenu(_wheelFortuneMenu);
+    }
+    public void CloseWheelFortuneMenu()
+    {
+        CloseMenu(_wheelFortuneMenu);
+    }
+
+    public void OpenGameOverMenu()
+    {
+        OpenMenu(_gameOverMenu);
+    }
+    public void CloseGameOverMenu()
+    {
+        CloseMenu(_gameOverMenu);
+    }
+
+    public void OpenFinishLevelMenu()
+    {
+        OpenMenu(_finishLevelMenu);
+    }
+    public void CloseFinishLevelMenu()
+    {
+        CloseMenu(_finishLevelMenu);
+    }
+
+    private void OpenMenu(GameMenu gameMenu)
+    {
+        CloseAllMenus();
+        gameMenu.EnableMenu();
+    }
+    private void CloseMenu(GameMenu gameMenu)
+    {
+        // CloseAllMenus();
+        gameMenu.DisableMenu();
+    }
+
+    public void CloseAllMenus()
+    {
+        CloseSettingsMenu();
+        CloseWheelFortuneMenu();
+        CloseGameOverMenu();
+        CloseFinishLevelMenu();
+    }
+
+    public void Pause()
+    {
+        _player.StopPlayerMove();
+    }
+    public void Unpause()
+    {
+        _player.RestorePlayerMove();
     }
 
     public void Quit()
@@ -46,15 +102,5 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
-    }
-
-    public void GameOver()
-    {
-        _gameOverMenu.EnableMenu();
-    }
-
-    public void FinishLevel()
-    {
-        _finishLevelMenu.EnableMenu();
     }
 }

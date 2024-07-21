@@ -43,11 +43,7 @@ public class Player : MonoBehaviour
         if (obstacle is SimpleObstacle)
         {
             var simpleObstacle = obstacle as SimpleObstacle;
-            if (_playerSizeController.GetCurrentSize() <= simpleObstacle.GetTargetMaxSize())
-            {
-                //  Debug.Log("SimpleObstacle");
-            }
-            else
+            if (_playerSizeController.GetCurrentSize() >= simpleObstacle.GetTargetMaxSize())
             {
                 GameOver();
             }
@@ -61,17 +57,21 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
-        StopPlayer();
-        GameManager.Instance.GameOver();
+        GameManager.Instance.OpenGameOverMenu();
     }
 
     private void FinishLevel()
     {
-        StopPlayer();
-        GameManager.Instance.FinishLevel();
+        GameManager.Instance.OpenFinishLevelMenu();
     }
 
-    private void StopPlayer()
+    public void RestorePlayerMove()
+    {
+        _moveController.RestoreMove();
+        _animationController.RestorePlayAllAnimatios();
+    }
+
+    public void StopPlayerMove()
     {
         _moveController.StopMove();
         _animationController.StopPlayAllAnimations();
