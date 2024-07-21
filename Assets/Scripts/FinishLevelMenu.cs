@@ -10,6 +10,16 @@ public class FinishLevelMenu : MonoBehaviour
 
     private const string START_COIN_CONFETTI_TRIGGER_NAME = "StartCoinConfetti";
 
+    public static FinishLevelMenu Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void StartConfetti()
     {
         _animator.SetTrigger(START_COIN_CONFETTI_TRIGGER_NAME);

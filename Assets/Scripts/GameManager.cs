@@ -33,16 +33,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoadLevel(int id)
-    {
-        SceneManager.LoadScene(id);
-    }
-
-    public void ResetLevel()
-    {
-        LoadLevel(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void OpenSettingsMenu()
     {
         StartPause();
@@ -67,25 +57,6 @@ public class GameManager : MonoBehaviour
     {
         _giftMenuCanvasGroup.alpha = 0;
         _giftMenuCanvasGroup.blocksRaycasts = false;
-    }
-
-    /*    public void OpenFinishLevelMenu()
-        {
-            StartPause();
-            _finishLevelCanvasGroup.alpha = 1;
-            _finishLevelCanvasGroup.blocksRaycasts = true;
-        }
-        public void CloseFinishLevelMenu()
-        {
-            StopPause();
-            _finishLevelCanvasGroup.alpha = 0;
-            _finishLevelCanvasGroup.blocksRaycasts = false;
-            GoToMainMenu();
-        }*/
-
-    public void GoToMainMenu()
-    {
-        LoadLevel(0);
     }
 
     public void Quit()
