@@ -16,14 +16,14 @@ public abstract class GameMenu : MonoBehaviour
 
     public virtual void EnableMenu()
     {
-        GameManager.Instance.Pause();
+        //  UIManager.Instance.Pause();
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
     }
 
     public virtual void DisableMenu()
     {
-        GameManager.Instance.Unpause();
+        //  UIManager.Instance.Unpause();
         _canvasGroup.alpha = 0;
         _canvasGroup.blocksRaycasts = false;
     }

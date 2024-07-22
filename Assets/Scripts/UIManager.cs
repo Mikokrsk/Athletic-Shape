@@ -7,17 +7,18 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class UIManager : MonoBehaviour
 {
     [SerializeField] private FinishLevelMenu _finishLevelMenu;
     [SerializeField] private GameOverMenu _gameOverMenu;
     [SerializeField] private WheelFortuneMenu _wheelFortuneMenu;
     [SerializeField] private SettingsMenu _settingsMenu;
     [SerializeField] private SummaryMenu _summaryMenu;
+    [SerializeField] private GameObject _GameUI;
 
-    [SerializeField] private Player _player;
+    [SerializeField] private LevelLoadManager _levelLoadManager;
 
-    public static GameManager Instance;
+    public static UIManager Instance;
 
     private void OnEnable()
     {
@@ -97,15 +98,6 @@ public class GameManager : MonoBehaviour
         CloseFinishLevelMenu();
     }
 
-    public void Pause()
-    {
-        _player.StopPlayerMove();
-    }
-    public void Unpause()
-    {
-        _player.RestorePlayerMove();
-    }
-
     public void Quit()
     {
 #if UNITY_EDITOR
@@ -113,5 +105,15 @@ public class GameManager : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    public void GoToHome()
+    {
+        _levelLoadManager.GoToMainMenu();
+    }
+
+    public void RestartLevel()
+    {
+        _levelLoadManager.RestartLevel();
     }
 }

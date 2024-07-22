@@ -113,7 +113,7 @@ public class WheelOfFortune : MonoBehaviour
         _isSpinning = false;
         var gift = DetermineWinningSector();
         _closeButton.interactable = true;
-        GameManager.Instance.OpenSummaryMenu(gift.GetCost());
+        UIManager.Instance.OpenSummaryMenu(gift.GetCost());
     }
 
     public Gift DetermineWinningSector()

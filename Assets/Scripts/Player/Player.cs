@@ -56,12 +56,12 @@ public class Player : MonoBehaviour
 
     private void GameOver()
     {
-        GameManager.Instance.OpenGameOverMenu();
+        UIManager.Instance.OpenGameOverMenu();
     }
 
     private void FinishLevel()
     {
-        GameManager.Instance.OpenFinishLevelMenu();
+        UIManager.Instance.OpenFinishLevelMenu();
     }
 
     public void RestorePlayerMove()

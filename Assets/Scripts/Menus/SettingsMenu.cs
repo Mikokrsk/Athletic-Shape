@@ -13,6 +13,11 @@ public class SettingsMenu : GameMenu
     public override void Start()
     {
         base.Start();
+        UpdateGameMode();
+    }
+
+    private void UpdateGameMode()
+    {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
             _goToHomeButton.SetActive(false);
