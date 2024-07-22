@@ -10,6 +10,7 @@ public class SoundManager : MonoBehaviour
     [SerializeField] private Sprite _muteSoundImage;
     [SerializeField] private Sprite _unmuteSoundImage;
     [SerializeField] private Image _soundImage;
+    [SerializeField] private AudioSource _soundSource;
 
     private void Start()
     {
@@ -19,10 +20,9 @@ public class SoundManager : MonoBehaviour
 
     public void UpdateVolumeValue()
     {
-        _volumeValue = _volumeValueSlider.value;
-        _soundImage.sprite = _muteSoundImage;
+        _soundSource.volume = _volumeValueSlider.value;
 
-        if (_volumeValue == 0)
+        if (_volumeValueSlider.value == 0)
         {
             MuteSound();
         }
@@ -34,26 +34,26 @@ public class SoundManager : MonoBehaviour
 
     public void ToggleSound()
     {
-        if (_volumeValue == 0)
+        if (_volumeValueSlider.value == 0)
         {
             _volumeValueSlider.value = 0.25f;
+            _soundSource.volume = 0.25f;
             UnmuteSound();
         }
         else
         {
+            _volumeValueSlider.value = 0f;
+            _soundSource.volume = 0f;
             MuteSound();
         }
     }
 
     private void MuteSound()
     {
-        _volumeValue = 0;
-        _volumeValueSlider.value = 0;
         _soundImage.sprite = _muteSoundImage;
     }
     private void UnmuteSound()
     {
-        _volumeValue = _volumeValueSlider.value;
         _soundImage.sprite = _unmuteSoundImage;
     }
 }
