@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
         }
     }
 
-
     private void CheckCollision(Obstacle obstacle)
     {
         if (obstacle is JumpableObstacle)

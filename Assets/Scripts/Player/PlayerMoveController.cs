@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMoveController : MonoBehaviour
 {
@@ -24,7 +25,10 @@ public class PlayerMoveController : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _isMoving = true;
+        if (SceneManager.GetActiveScene().buildIndex > 0)
+        {
+            _isMoving = true;
+        }
     }
 
     void FixedUpdate()
