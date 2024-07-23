@@ -38,17 +38,19 @@ public class Wallet : MonoBehaviour
         UpdateMoneyText();
     }
 
-    public void SpendMoney(int amount)
+    public bool SpendMoney(int amount)
     {
         if (Money >= amount)
         {
             Money -= amount;
             SaveMoney();
             UpdateMoneyText();
+            return true;
         }
         else
         {
             Debug.Log("Not enough coin win more");
+            return false;
         }
     }
 

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerSizeController _playerSizeController;
     [SerializeField] private PlayerMoveController _moveController;
     [SerializeField] private PlayerAnimationController _animationController;
+
+    public List<BodyPartRendererPair> bodyPartRendererPairs;
 
     private void Start()
     {
@@ -21,6 +24,19 @@ public class Player : MonoBehaviour
         if (_animationController == null)
         {
             _animationController = GetComponentInChildren<PlayerAnimationController>();
+        }
+    }
+
+    public void ChangeTexture(TexturesShopItem texturesShopItem)
+    {
+        foreach (var pair in bodyPartRendererPairs)
+        {
+            var texture = texturesShopItem.formParts.Find(x => x.bodyPart == pair.bodyPart).texture;
+
+            if (texture != null)
+            {
+                pair.renderer.material.SetTexture("_MainTex", texture);
+            }
         }
     }
 
@@ -86,4 +102,11 @@ public class Player : MonoBehaviour
             CheckCollision(obtacle);
         }
     }
+}
+
+[Serializable]
+public struct BodyPartRendererPair
+{
+    public BodyPart bodyPart;
+    public Renderer renderer;
 }

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a668c7e5d16844beb233dba83c976, type: 3}
+  m_Name: PinkForm
+  m_EditorClassIdentifier: 
+  formParts:
+  - bodyPart: 0
+    texture: {fileID: 2800000, guid: c54a9b5f01b08b842a28ab7cb97b9f04, type: 3}
+  - bodyPart: 1
+    texture: {fileID: 2800000, guid: 0bf5c0c90cd41964b937a3e06da8d8bc, type: 3}
+  - bodyPart: 2
+    texture: {fileID: 2800000, guid: 8cb868b5c288f274485e0c44539fa59f, type: 3}
+  - bodyPart: 3
+    texture: {fileID: 2800000, guid: 8cb868b5c288f274485e0c44539fa59f, type: 3}
+  - bodyPart: 4
+    texture: {fileID: 2800000, guid: fce74315d98beda4886af9143afd1f02, type: 3}
+  - bodyPart: 5
+    texture: {fileID: 2800000, guid: fce74315d98beda4886af9143afd1f02, type: 3}

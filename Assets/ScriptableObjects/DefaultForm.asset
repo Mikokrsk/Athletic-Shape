@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a668c7e5d16844beb233dba83c976, type: 3}
+  m_Name: DefaultForm
+  m_EditorClassIdentifier: 
+  formParts:
+  - bodyPart: 0
+    texture: {fileID: 2800000, guid: 05fc66cb08f7a344bae0ae7df5665d84, type: 3}
+  - bodyPart: 1
+    texture: {fileID: 2800000, guid: 17a64df62b5e5284a938dbd8dab22f1c, type: 3}
+  - bodyPart: 2
+    texture: {fileID: 2800000, guid: eb3964eaa8ceb364aa33fc41f86fa721, type: 3}
+  - bodyPart: 3
+    texture: {fileID: 2800000, guid: eb3964eaa8ceb364aa33fc41f86fa721, type: 3}
+  - bodyPart: 4
+    texture: {fileID: 2800000, guid: 6f21add723cc76345afa8ae4cd21336d, type: 3}
+  - bodyPart: 5
+    texture: {fileID: 2800000, guid: 6f21add723cc76345afa8ae4cd21336d, type: 3}

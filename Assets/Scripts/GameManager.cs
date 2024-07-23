@@ -11,6 +11,16 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _mainMenuCamera;
     [SerializeField] private GameMode _gameMode;
 
+    public static GameManager Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     private void Start()
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
@@ -21,6 +31,11 @@ public class GameManager : MonoBehaviour
         {
             _gameMode = GameMode.Game;
         }
+    }
+
+    public Player GetPlayer()
+    {
+        return _player.GetComponent<Player>();
     }
 
     enum GameMode

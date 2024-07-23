@@ -1285,6 +1285,19 @@ MonoBehaviour:
   _playerSizeController: {fileID: 0}
   _moveController: {fileID: 0}
   _animationController: {fileID: 0}
+  bodyPartRendererPairs:
+  - bodyPart: 0
+    renderer: {fileID: 4506931377726544154}
+  - bodyPart: 1
+    renderer: {fileID: 3064218956503119448}
+  - bodyPart: 2
+    renderer: {fileID: 2170887826251997999}
+  - bodyPart: 3
+    renderer: {fileID: 2687924404059678043}
+  - bodyPart: 4
+    renderer: {fileID: 3970859238005121192}
+  - bodyPart: 5
+    renderer: {fileID: 4540449800015686251}
 --- !u!114 &1829266525765647760
 MonoBehaviour:
   m_ObjectHideFlags: 0

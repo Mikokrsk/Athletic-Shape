@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7a668c7e5d16844beb233dba83c976, type: 3}
+  m_Name: Night_Sky_Form
+  m_EditorClassIdentifier: 
+  formParts:
+  - bodyPart: 0
+    texture: {fileID: 2800000, guid: 7eafd6832afab174ead7feae0050419c, type: 3}
+  - bodyPart: 1
+    texture: {fileID: 2800000, guid: 4592475947d559b488a35d197bee56c4, type: 3}
+  - bodyPart: 2
+    texture: {fileID: 2800000, guid: 1d562328a4e230f4287eab238b40470a, type: 3}
+  - bodyPart: 3
+    texture: {fileID: 2800000, guid: 1d562328a4e230f4287eab238b40470a, type: 3}
+  - bodyPart: 4
+    texture: {fileID: 2800000, guid: 26b1684dd91834e4c8cb347e2007d261, type: 3}
+  - bodyPart: 5
+    texture: {fileID: 2800000, guid: 26b1684dd91834e4c8cb347e2007d261, type: 3}
