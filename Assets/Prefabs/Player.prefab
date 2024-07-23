@@ -1282,9 +1282,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6474a6a659e2e634bab836b9e8ed1d5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerSizeController: {fileID: 0}
-  _moveController: {fileID: 0}
-  _animationController: {fileID: 0}
+  _playerSizeController: {fileID: 2381075604331812009}
+  _moveController: {fileID: 1829266525765647760}
+  _animationController: {fileID: 3957251164573904052}
   bodyPartRendererPairs:
   - bodyPart: 0
     renderer: {fileID: 4506931377726544154}
