@@ -16,22 +16,56 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SummaryMenu _summaryMenu;
     [SerializeField] private ShopMenu _shopMenu;
     [SerializeField] private ShopMenu _levelSelectMenu;
+    [SerializeField] private ControlButtonsMenu _controlButtonsMenu;
+    [SerializeField] private TutorialMenu _tutorialMenu;
     [SerializeField] private GameObject _GameUI;
 
     [SerializeField] private LevelLoadManager _levelLoadManager;
+
+    [SerializeField] private GameManager _gameManager;
 
     public static UIManager Instance;
 
     private void OnEnable()
     {
-        Time.timeScale = 1.0f;
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        var level = _gameManager.GetCurrentLevel();
+
+        if (level.name == "Tutorial Level")
+        {
+            _tutorialMenu.EnableMenu();
+        }
     }
 
-    private void Awake()
+    public void OpenGameMenuUI()
     {
-        if (Instance == null)
+        CloseAllMenus();
+
+        if (GameManager.Instance.GetCurrentLevel().levelDifficulty == LevelDifficulty.Tutorial)
         {
-            Instance = this;
+            OpenTutorialMenu();
+        }
+        else
+        {
+            OpenControlButtonsMenu();
+        }
+    }
+    public void OpenMainMenuUI()
+    {
+        CloseAllMenus();
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.MainMenu)
+        {
+            OpenShopMenu();
+            OpenLevelSelectMenu();
+            _settingsMenu.UpdateGameMode();
         }
     }
 
@@ -74,7 +108,7 @@ public class UIManager : MonoBehaviour
     public void OpenSummaryMenu(int amount)
     {
         _summaryMenu.SetSummary(amount);
-        OpenMenu(_summaryMenu);
+        _summaryMenu.EnableMenu();
     }
     public void CloseSummaryMenu()
     {
@@ -99,9 +133,26 @@ public class UIManager : MonoBehaviour
         CloseMenu(_levelSelectMenu);
     }
 
+    public void OpenTutorialMenu()
+    {
+        OpenMenu(_tutorialMenu);
+    }
+    public void CloseTutorialMenu()
+    {
+        CloseMenu(_tutorialMenu);
+    }
+
+    public void OpenControlButtonsMenu()
+    {
+        OpenMenu(_controlButtonsMenu);
+    }
+    public void CloseControlButtonsMenu()
+    {
+        CloseMenu(_controlButtonsMenu);
+    }
+
     private void OpenMenu(GameMenu gameMenu)
     {
-        CloseAllMenus();
         gameMenu.EnableMenu();
     }
     private void CloseMenu(GameMenu gameMenu)
@@ -116,6 +167,10 @@ public class UIManager : MonoBehaviour
         CloseWheelFortuneMenu();
         CloseGameOverMenu();
         CloseFinishLevelMenu();
+        CloseControlButtonsMenu();
+        CloseLevelSelectMenu();
+        CloseTutorialMenu();
+        CloseShopMenu();
     }
 
     public void Quit()
@@ -129,11 +184,13 @@ public class UIManager : MonoBehaviour
 
     public void GoToHome()
     {
+        CloseAllMenus();
         _levelLoadManager.GoToMainMenu();
     }
 
     public void RestartLevel()
     {
-        _levelLoadManager.RestartLevel();
+        CloseAllMenus();
+        _gameManager.RestartLevel();
     }
 }

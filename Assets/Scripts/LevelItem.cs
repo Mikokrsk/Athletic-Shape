@@ -9,6 +9,7 @@ public class LevelItem : ScriptableObject
 {
     public int amount;
     public int levelLoadIndex;
+    public float _roadLength;
     public LevelDifficulty levelDifficulty;
 }
 

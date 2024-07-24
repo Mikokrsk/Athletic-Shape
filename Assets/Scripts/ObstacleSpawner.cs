@@ -13,6 +13,20 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] protected float _minDistanceBetweenObstacles = 1f;
     [SerializeField] protected float _maxDistanceBetweenObstacles = 3f;
 
+    public void ClearObstacle()
+    {
+        foreach (Transform child in transform)
+        {
+            Destroy(child.gameObject);
+        }
+    }
+    public void ResetColliders()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponentInChildren<Collider>().enabled = true;
+        }
+    }
     public float GetStartSpawnPosition()
     {
         return _startSpawnPositionZ;

@@ -11,6 +11,14 @@ public class SummaryMenu : GameMenu
 
     private const string START_COIN_CONFETTI_TRIGGER_NAME = "StartCoinConfetti";
 
+    public override void Start()
+    {
+        var money = GameManager.Instance.GetCurrentLevel().amount;
+        _summaryText.text = money.ToString();
+        SetSummary(money);
+    }
+
+
     private void StartConfetti()
     {
         _animator.SetTrigger(START_COIN_CONFETTI_TRIGGER_NAME);

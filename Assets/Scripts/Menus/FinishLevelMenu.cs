@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,5 +14,12 @@ public class FinishLevelMenu : GameMenu
         {
             Instance = this;
         }
+    }
+
+    public override void EnableMenu()
+    {
+        base.EnableMenu();
+        var money = GameManager.Instance.GetCurrentLevel().amount;
+        UIManager.Instance.OpenSummaryMenu(money);
     }
 }

@@ -9,20 +9,6 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private ObstacleSpawner _obstacleSpawner;
     [SerializeField] private Transform _roadPivotTransform;
 
-    public void Start()
-    {
-        LevelItem currentLevel = GameManager.Instance.GetCurrentLevel();
-
-        if (currentLevel != null)
-        {
-            if (currentLevel.name == "Tutorial Level" || GameManager.Instance.GetCurrentGameMode() == GameMode.MainMenu)
-            {
-               CreateLevel(currentLevel.amount);
-            }
-
-        }
-    }
-
     public void CreateLevel(float roadLength)
     {
         _obstacleSpawner.SetEndSpawnPosition(roadLength);

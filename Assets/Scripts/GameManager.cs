@@ -5,26 +5,39 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject _uiManager;
-    [SerializeField] private GameObject _player;
+    [SerializeField] private UIManager _uiManager;
+    [SerializeField] private Player _player;
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private LevelLoadManager _levelLoadManager;
     [SerializeField] private GameObject _mainMenuCamera;
     [SerializeField] private GameObject _gameCamera;
     [SerializeField] private GameMode _gameMode;
     [SerializeField] private LevelItem _currentLevel;
+    [SerializeField] private ObstacleSpawner _obstacleSpawner;
 
     public static GameManager Instance;
 
+
     private void Awake()
     {
-        if (Instance == null)
+        if (Instance != null && Instance != this)
         {
-            Instance = this;
+            Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private void Start()
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (SceneManager.GetActiveScene().buildIndex == 0)
         {
@@ -34,8 +47,44 @@ public class GameManager : MonoBehaviour
         {
             _gameMode = GameMode.Game;
         }
-
         CamerasSetup();
+        UpdateUISetup();
+        PlayerStartSetup();
+        CreateLevel();
+    }
+
+    private void CreateLevel()
+    {
+        _obstacleSpawner.ClearObstacle();
+        if (_gameMode == GameMode.Game && _currentLevel.levelDifficulty != LevelDifficulty.Tutorial)
+        {
+            _levelManager.CreateLevel(_currentLevel._roadLength);
+        }
+    }
+
+    private void PlayerStartSetup()
+    {
+        if (_gameMode == GameMode.MainMenu)
+        {
+            _player.StopMove();
+        }
+        else
+        {
+            _player.RestoreMove();
+            _player.RestorePlayerAction();
+            _player.transform.position = Vector3.zero;
+        }
+    }
+    private void UpdateUISetup()
+    {
+        if (_gameMode == GameMode.MainMenu)
+        {
+            _uiManager.OpenMainMenuUI();
+        }
+        else
+        {
+            _uiManager.OpenGameMenuUI();
+        }
     }
 
     private void CamerasSetup()
@@ -81,6 +130,13 @@ public class GameManager : MonoBehaviour
                 _levelLoadManager.LoadLevel(_currentLevel.levelLoadIndex);
             }
         }
+    }
+    public void RestartLevel()
+    {
+        _player.transform.position = Vector3.zero;
+        _player.RestorePlayerAction();
+        _obstacleSpawner.ResetColliders();
+        _uiManager.OpenGameMenuUI();
     }
 }
 

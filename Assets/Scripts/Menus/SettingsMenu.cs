@@ -16,12 +16,23 @@ public class SettingsMenu : GameMenu
         UpdateGameMode();
     }
 
-    private void UpdateGameMode()
+    public override void EnableMenu()
     {
-        if (SceneManager.GetActiveScene().buildIndex == 0)
+        base.EnableMenu();
+        UpdateGameMode();
+    }
+
+    public void UpdateGameMode()
+    {
+        if (GameManager.Instance.GetCurrentGameMode() == GameMode.MainMenu)
         {
             _goToHomeButton.SetActive(false);
             _restartLevelButton.SetActive(false);
+        }
+        else
+        {
+            _goToHomeButton.SetActive(true);
+            _restartLevelButton.SetActive(true);
         }
     }
 

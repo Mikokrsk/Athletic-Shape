@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Player : MonoBehaviour
 
     public List<BodyPartRendererPair> bodyPartRendererPairs;
 
-    private void Start()
+    private void OnEnable()
     {
         if (_playerSizeController == null)
         {
@@ -25,6 +26,16 @@ public class Player : MonoBehaviour
         {
             _animationController = GetComponentInChildren<PlayerAnimationController>();
         }
+    }
+
+    public void Grow()
+    {
+        _playerSizeController.Grow();
+    }
+
+    public void Shrink()
+    {
+        _playerSizeController.Shrink();
     }
 
     public void ChangeTexture(TexturesShopItem texturesShopItem)
@@ -73,23 +84,37 @@ public class Player : MonoBehaviour
     private void GameOver()
     {
         UIManager.Instance.OpenGameOverMenu();
+        StopPlayerAction();
     }
 
     private void FinishLevel()
     {
+        StopPlayerAction();
         UIManager.Instance.OpenFinishLevelMenu();
     }
 
-    public void RestorePlayerMove()
+    public void RestorePlayerAction()
     {
         _moveController.RestoreMove();
         _animationController.RestorePlayAllAnimatios();
     }
-
-    public void StopPlayerMove()
+    public void StopPlayerAction()
     {
         _moveController.StopMove();
         _animationController.StopPlayAllAnimations();
+    }
+
+    public void RestoreMove()
+    {
+        _moveController.RestoreMove();
+        _animationController.RestorePlayAllAnimatios();
+        _playerSizeController.Shrink();
+    }
+    public void StopMove()
+    {
+        _moveController.StopMove();
+        _animationController.RestorePlayAllAnimatios();
+        _playerSizeController.Shrink();
     }
 
     private void OnTriggerEnter(Collider other)
