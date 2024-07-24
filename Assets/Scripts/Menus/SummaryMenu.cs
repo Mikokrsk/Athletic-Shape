@@ -15,7 +15,6 @@ public class SummaryMenu : GameMenu
     {
         var money = GameManager.Instance.GetCurrentLevel().amount;
         _summaryText.text = money.ToString();
-        SetSummary(money);
     }
 
 

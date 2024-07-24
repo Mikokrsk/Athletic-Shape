@@ -45,6 +45,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         var lastObstaclePositionZ = _startSpawnPositionZ;
         int i = 0;
+        _obstaclesList.Clear();
         while (true)
         {
             if (_obstaclesList.Count() > 0)

@@ -72,8 +72,8 @@ public class GameManager : MonoBehaviour
         {
             _player.RestoreMove();
             _player.RestorePlayerAction();
-            _player.transform.position = Vector3.zero;
         }
+        _player.transform.position = Vector3.zero;
     }
     private void UpdateUISetup()
     {
@@ -125,10 +125,8 @@ public class GameManager : MonoBehaviour
     {
         if (_currentLevel != null)
         {
-            if (_currentLevel.name == "Tutorial Level" || GetCurrentGameMode() == GameMode.MainMenu)
-            {
-                _levelLoadManager.LoadLevel(_currentLevel.levelLoadIndex);
-            }
+            RestartLevel();
+            _levelLoadManager.LoadLevel(_currentLevel.levelLoadIndex);
         }
     }
     public void RestartLevel()
