@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour
         UpdateUISetup();
         PlayerStartSetup();
         CreateLevel();
+        _levelLoadManager.FadeOut();
     }
 
     private void CreateLevel()
