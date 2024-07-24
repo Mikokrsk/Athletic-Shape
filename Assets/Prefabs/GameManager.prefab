@@ -2318,7 +2318,7 @@ GameObject:
   - component: {fileID: 8946820625645650772}
   - component: {fileID: 5702535964101238513}
   m_Layer: 5
-  m_Name: EasyLevel
+  m_Name: MediumSpiralLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2371,7 +2371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Medium Level
+  m_text: Medium Spiral Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5163,7 +5163,7 @@ GameObject:
   - component: {fileID: 5472512547609610639}
   - component: {fileID: 4076562728754808839}
   m_Layer: 5
-  m_Name: HardLevel
+  m_Name: HardSpiralLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5216,7 +5216,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Hard Level
+  m_text: Hard Spiral Level
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
