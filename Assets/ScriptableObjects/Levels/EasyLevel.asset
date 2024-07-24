@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8b78d011f855c47b5ef032cc92395f, type: 3}
   m_Name: EasyLevel
   m_EditorClassIdentifier: 
-  amount: 10
+  amount: 1
   levelLoadIndex: 2
-  _roadLength: 10
+  roadLength: 20
+  playerSpeed: 1
   levelDifficulty: 1
+  isSpiralLevel: 0

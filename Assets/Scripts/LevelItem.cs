@@ -9,8 +9,10 @@ public class LevelItem : ScriptableObject
 {
     public int amount;
     public int levelLoadIndex;
-    public float _roadLength;
+    public float roadLength;
+    public float playerSpeed;
     public LevelDifficulty levelDifficulty;
+    public bool isSpiralLevel;
 }
 
 public enum LevelDifficulty
@@ -18,5 +20,5 @@ public enum LevelDifficulty
     Tutorial,
     Easy,
     Medium,
-    Hard,
+    Hard
 }

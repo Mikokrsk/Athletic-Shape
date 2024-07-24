@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelManager _levelManager;
     [SerializeField] private LevelLoadManager _levelLoadManager;
     [SerializeField] private GameObject _mainMenuCamera;
-    [SerializeField] private GameObject _gameCamera;
+    [SerializeField] private GameObject _gameCameraObject;
+    [SerializeField] private GameFollowCamera _gameCamera;
     [SerializeField] private GameMode _gameMode;
     [SerializeField] private LevelItem _currentLevel;
     [SerializeField] private ObstacleSpawner _obstacleSpawner;
@@ -58,7 +59,9 @@ public class GameManager : MonoBehaviour
         _obstacleSpawner.ClearObstacle();
         if (_gameMode == GameMode.Game && _currentLevel.levelDifficulty != LevelDifficulty.Tutorial)
         {
-            _levelManager.CreateLevel(_currentLevel._roadLength);
+            _levelManager.CreateLevel(_currentLevel.roadLength);
+            _player.GetMoveController().SetMoveSpeed(_currentLevel.playerSpeed);
+            _gameCamera.SetRotation(_currentLevel.isSpiralLevel);
         }
     }
 
@@ -92,12 +95,12 @@ public class GameManager : MonoBehaviour
         if (_gameMode == GameMode.MainMenu)
         {
             _mainMenuCamera.SetActive(true);
-            _gameCamera.SetActive(false);
+            _gameCameraObject.SetActive(false);
         }
         else
         {
             _mainMenuCamera.SetActive(false);
-            _gameCamera.SetActive(true);
+            _gameCameraObject.SetActive(true);
         }
     }
 

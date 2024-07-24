@@ -28,6 +28,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public PlayerMoveController GetMoveController()
+    {
+        return _moveController;
+    }
+
     public void Grow()
     {
         _playerSizeController.Grow();

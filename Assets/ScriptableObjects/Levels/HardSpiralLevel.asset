@@ -10,10 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d8b78d011f855c47b5ef032cc92395f, type: 3}
-  m_Name: TutorialLevel
+  m_Name: HardSpiralLevel
   m_EditorClassIdentifier: 
-  amount: 0
-  levelLoadIndex: 1
-  roadLength: 0
-  playerSpeed: 1
-  levelDifficulty: 0
+  amount: 30
+  levelLoadIndex: 2
+  roadLength: 60
+  playerSpeed: 3
+  levelDifficulty: 3
+  isSpiralLevel: 1
