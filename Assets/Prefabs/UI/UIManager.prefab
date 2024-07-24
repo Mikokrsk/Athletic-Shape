@@ -51,6 +51,7 @@ MonoBehaviour:
   _wheelFortuneMenu: {fileID: 456298700461278455}
   _settingsMenu: {fileID: 7500190079994683870}
   _summaryMenu: {fileID: 9054643704952647529}
+  _shopMenu: {fileID: 7481488425687332593}
   _GameUI: {fileID: 6848423540638519826}
   _levelLoadManager: {fileID: 0}
 --- !u!1 &1483686996503052405
@@ -1967,6 +1968,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5711435997539872608}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7481488425687332593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2922993194431158673, guid: 3a945ef6cb7fe584d934e9ccb8740619,
+    type: 3}
+  m_PrefabInstance: {fileID: 5711435997539872608}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f575d6a8b047be840b04092561d40c8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &5810392164754437549
 PrefabInstance:
   m_ObjectHideFlags: 0

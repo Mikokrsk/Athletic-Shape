@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private WheelFortuneMenu _wheelFortuneMenu;
     [SerializeField] private SettingsMenu _settingsMenu;
     [SerializeField] private SummaryMenu _summaryMenu;
+    [SerializeField] private ShopMenu _shopMenu;
     [SerializeField] private GameObject _GameUI;
 
     [SerializeField] private LevelLoadManager _levelLoadManager;
@@ -77,6 +78,15 @@ public class UIManager : MonoBehaviour
     public void CloseSummaryMenu()
     {
         CloseMenu(_summaryMenu);
+    }
+
+    public void OpenShopMenu()
+    {
+        OpenMenu(_shopMenu);
+    }
+    public void CloseShopMenu()
+    {
+        CloseMenu(_shopMenu);
     }
 
     private void OpenMenu(GameMenu gameMenu)

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ShopMenu : GameMenu
 {
@@ -14,29 +15,48 @@ public class ShopMenu : GameMenu
     {
         base.Start();
         _isMenuOpened = false;
+
+        if (SceneManager.GetActiveScene().buildIndex == 0)
+        {
+            EnableMenu();
+        }
+        else
+        {
+            DisableMenu();
+        }
     }
 
     public void TogleMenu()
     {
         if (_isMenuOpened)
         {
-            DisableMenu();
+            CloseMenu();
         }
         else
         {
-            EnableMenu();
+            OpenMenu();
         }
     }
 
     public override void EnableMenu()
     {
-        //  base.EnableMenu();
+        base.EnableMenu();
+    }
+
+    private void OpenMenu()
+    {
         _animator.SetTrigger(OPEN_SHOP_MENU_TRIGGER_NAME);
         _isMenuOpened = true;
     }
+
     public override void DisableMenu()
     {
-        //  base.DisableMenu();
+        base.DisableMenu();
+        CloseMenu();
+    }
+
+    private void CloseMenu()
+    {
         _animator.SetTrigger(CLOSE_SHOP_MENU_TRIGGER_NAME);
         _isMenuOpened = false;
     }
