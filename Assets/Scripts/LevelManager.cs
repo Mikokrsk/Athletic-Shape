@@ -1,16 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    [SerializeField] private float _roadLength;
     [SerializeField] private ObstacleSpawner _obstacleSpawner;
     [SerializeField] private Transform _roadPivotTransform;
 
-    private void Start()
+    public void Start()
     {
-        _obstacleSpawner.SetEndSpawnPosition(_roadLength);
+        LevelItem currentLevel = GameManager.Instance.GetCurrentLevel();
+
+        if (currentLevel != null)
+        {
+            if (currentLevel.name == "Tutorial Level" || GameManager.Instance.GetCurrentGameMode() == GameMode.MainMenu)
+            {
+               CreateLevel(currentLevel.amount);
+            }
+
+        }
+    }
+
+    public void CreateLevel(float roadLength)
+    {
+        _obstacleSpawner.SetEndSpawnPosition(roadLength);
         _obstacleSpawner.SpawnObstacles();
 
         var roadScaleZ = (_obstacleSpawner.GetStartSpawnPosition() + _obstacleSpawner.GetEndSpawnPosition()) / 10;

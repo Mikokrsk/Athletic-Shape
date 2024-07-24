@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SettingsMenu _settingsMenu;
     [SerializeField] private SummaryMenu _summaryMenu;
     [SerializeField] private ShopMenu _shopMenu;
+    [SerializeField] private ShopMenu _levelSelectMenu;
     [SerializeField] private GameObject _GameUI;
 
     [SerializeField] private LevelLoadManager _levelLoadManager;
@@ -87,6 +88,15 @@ public class UIManager : MonoBehaviour
     public void CloseShopMenu()
     {
         CloseMenu(_shopMenu);
+    }
+
+    public void OpenLevelSelectMenu()
+    {
+        OpenMenu(_levelSelectMenu);
+    }
+    public void CloseLevelSelectMenu()
+    {
+        CloseMenu(_levelSelectMenu);
     }
 
     private void OpenMenu(GameMenu gameMenu)
