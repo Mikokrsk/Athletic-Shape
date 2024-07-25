@@ -55,6 +55,7 @@ MonoBehaviour:
   _levelSelectMenu: {fileID: 9173274129648276558}
   _controlButtonsMenu: {fileID: 2313834333378799013}
   _tutorialMenu: {fileID: 4541761639277632298}
+  _warningMessageMenu: {fileID: 0}
   _GameUI: {fileID: 6848423540638519826}
   _levelLoadManager: {fileID: 0}
   _gameManager: {fileID: 0}
@@ -1218,15 +1219,15 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3949428049410990668}
-  - {fileID: 3948273948907532784}
-  - {fileID: 8026858106711595849}
-  - {fileID: 1379954645093492556}
-  - {fileID: 3508275232259334219}
-  - {fileID: 8097738076280786112}
   - {fileID: 6527536980437662883}
   - {fileID: 923445068273022425}
   - {fileID: 6019179386474949185}
+  - {fileID: 3508275232259334219}
   - {fileID: 2116962745419533731}
+  - {fileID: 3948273948907532784}
+  - {fileID: 8097738076280786112}
+  - {fileID: 8026858106711595849}
+  - {fileID: 1379954645093492556}
   m_Father: {fileID: 5021463630185085499}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

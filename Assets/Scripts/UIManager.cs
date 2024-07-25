@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private ShopMenu _levelSelectMenu;
     [SerializeField] private ControlButtonsMenu _controlButtonsMenu;
     [SerializeField] private TutorialMenu _tutorialMenu;
+    [SerializeField] private WarningMessageMenu _warningMessageMenu;
     [SerializeField] private GameObject _GameUI;
 
     [SerializeField] private LevelLoadManager _levelLoadManager;
@@ -149,6 +150,16 @@ public class UIManager : MonoBehaviour
     public void CloseControlButtonsMenu()
     {
         CloseMenu(_controlButtonsMenu);
+    }
+
+
+    public void OpenWarningMessageMenu()
+    {
+        OpenMenu(_warningMessageMenu);
+    }
+    public void CloseWarningMessageMenu()
+    {
+        CloseMenu(_warningMessageMenu);
     }
 
     private void OpenMenu(GameMenu gameMenu)

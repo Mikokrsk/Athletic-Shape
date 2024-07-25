@@ -49,7 +49,7 @@ public class Wallet : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough coin win more");
+            UIManager.Instance.OpenWarningMessageMenu();
             return false;
         }
     }

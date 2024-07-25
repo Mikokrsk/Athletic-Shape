@@ -12,6 +12,7 @@ public class ObstacleSpawner : MonoBehaviour
     [SerializeField] protected float _endSpawnPositionZ = 10f;
     [SerializeField] protected float _minDistanceBetweenObstacles = 1f;
     [SerializeField] protected float _maxDistanceBetweenObstacles = 3f;
+    private int _lastRandomIndex = -1;
 
     public void ClearObstacle()
     {
@@ -92,7 +93,14 @@ public class ObstacleSpawner : MonoBehaviour
 
     protected GameObject GetRandomObstacle()
     {
-        var randomIndex = Random.Range(0, _prefabObstacles.Count);
+        int randomIndex;
+
+        do
+        {
+            randomIndex = Random.Range(0, _prefabObstacles.Count);
+        } while (randomIndex == _lastRandomIndex && _prefabObstacles.Count > 1);
+
+        _lastRandomIndex = randomIndex;
 
         return _prefabObstacles[randomIndex];
     }
