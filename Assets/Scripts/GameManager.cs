@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameMode _gameMode;
     [SerializeField] private LevelItem _currentLevel;
     [SerializeField] private ObstacleSpawner _obstacleSpawner;
-
+    [SerializeField] private GrassSpawner _grassSpawner;
     public static GameManager Instance;
 
 
@@ -58,12 +58,14 @@ public class GameManager : MonoBehaviour
     private void CreateLevel()
     {
         _obstacleSpawner.ClearObstacle();
+        _grassSpawner.ClearGrass();
         if (_gameMode == GameMode.Game && _currentLevel.levelDifficulty != LevelDifficulty.Tutorial)
         {
             _levelManager.CreateLevel(_currentLevel.roadLength);
             _player.GetMoveController().SetMoveSpeed(_currentLevel.playerSpeed);
             _gameCamera.SetRotation(_currentLevel.isSpiralLevel);
         }
+        _grassSpawner.SpawnGrass();
     }
 
     private void PlayerStartSetup()
