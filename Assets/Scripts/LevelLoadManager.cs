@@ -7,7 +7,7 @@ public class LevelLoadManager : MonoBehaviour
 {
     [SerializeField] private int _mainMenuIndex;
 
-    [SerializeField] private Image targetImage;
+    [SerializeField] private Image _startLoadScreen;
     [SerializeField] private float fadeDuration = 1.0f;
 
     public void FadeOut()
@@ -22,7 +22,8 @@ public class LevelLoadManager : MonoBehaviour
 
     private IEnumerator FadeToAlpha(float targetAlpha)
     {
-        Color color = targetImage.color;
+        _startLoadScreen.enabled = true;
+        Color color = _startLoadScreen.color;
         float startAlpha = color.a;
         float elapsedTime = 0;
 
@@ -30,12 +31,12 @@ public class LevelLoadManager : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             color.a = Mathf.Lerp(startAlpha, targetAlpha, elapsedTime / fadeDuration);
-            targetImage.color = color;
+            _startLoadScreen.color = color;
             yield return null;
         }
 
         color.a = targetAlpha;
-        targetImage.color = color;
+        _startLoadScreen.color = color;
     }
 
     public void GoToMainMenu()

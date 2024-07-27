@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         SceneManager.sceneLoaded += OnSceneLoaded;
+
+        _loadScreen.SetActive(true);
     }
 
     private void OnDisable()
@@ -55,7 +57,7 @@ public class GameManager : MonoBehaviour
         PlayerStartSetup();
         CreateLevel();
         _levelLoadManager.FadeOut();
-        _loadScreen.SetActive(true);
+
         if (_gameMode == GameMode.Game)
         {
             _uiManager.CloseShopMenus();
