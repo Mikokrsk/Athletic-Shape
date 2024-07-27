@@ -16,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private SummaryMenu _summaryMenu;
     [SerializeField] private ShopMenu _shopMenu;
     [SerializeField] private ShopMenu _levelSelectMenu;
+    [SerializeField] private GameObject _shopMenus;
     [SerializeField] private ControlButtonsMenu _controlButtonsMenu;
     [SerializeField] private TutorialMenu _tutorialMenu;
     [SerializeField] private WarningMessageMenu _warningMessageMenu;
@@ -44,6 +45,15 @@ public class UIManager : MonoBehaviour
         {
             _tutorialMenu.EnableMenu();
         }
+    }
+
+    public void OpenShopMenus()
+    {
+        _shopMenus.SetActive(true);
+    }
+    public void CloseShopMenus()
+    {
+        _shopMenus.SetActive(false);
     }
 
     public void OpenGameMenuUI()
@@ -119,18 +129,22 @@ public class UIManager : MonoBehaviour
     public void OpenShopMenu()
     {
         OpenMenu(_shopMenu);
+        CloseMenu(_levelSelectMenu);
     }
     public void CloseShopMenu()
     {
+        OpenMenu(_levelSelectMenu);
         CloseMenu(_shopMenu);
     }
 
     public void OpenLevelSelectMenu()
     {
         OpenMenu(_levelSelectMenu);
+        CloseMenu(_shopMenu);
     }
     public void CloseLevelSelectMenu()
     {
+        OpenMenu(_shopMenu);
         CloseMenu(_levelSelectMenu);
     }
 

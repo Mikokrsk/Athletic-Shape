@@ -41,11 +41,12 @@ public class ShopMenu : GameMenu
     public override void EnableMenu()
     {
         base.EnableMenu();
+        OpenMenu();
     }
 
     private void OpenMenu()
     {
-        _animator.SetTrigger(OPEN_SHOP_MENU_TRIGGER_NAME);
+        //  _animator.SetTrigger(OPEN_SHOP_MENU_TRIGGER_NAME);
         _isMenuOpened = true;
     }
 
@@ -57,7 +58,7 @@ public class ShopMenu : GameMenu
 
     private void CloseMenu()
     {
-        _animator.SetTrigger(CLOSE_SHOP_MENU_TRIGGER_NAME);
+        //  _animator.SetTrigger(CLOSE_SHOP_MENU_TRIGGER_NAME);
         _isMenuOpened = false;
     }
 }

@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LevelItem _currentLevel;
     [SerializeField] private ObstacleSpawner _obstacleSpawner;
     [SerializeField] private GrassSpawner _grassSpawner;
+    [SerializeField] private GameObject _loadScreen;
+
     public static GameManager Instance;
 
 
@@ -53,6 +55,15 @@ public class GameManager : MonoBehaviour
         PlayerStartSetup();
         CreateLevel();
         _levelLoadManager.FadeOut();
+        _loadScreen.SetActive(true);
+        if (_gameMode == GameMode.Game)
+        {
+            _uiManager.CloseShopMenus();
+        }
+        else
+        {
+            _uiManager.OpenShopMenus();
+        }
     }
 
     private void CreateLevel()

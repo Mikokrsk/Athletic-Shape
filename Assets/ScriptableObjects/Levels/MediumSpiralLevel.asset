@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d8b78d011f855c47b5ef032cc92395f, type: 3}
   m_Name: MediumSpiralLevel
   m_EditorClassIdentifier: 
-  amount: 20
+  amount: 100
   levelLoadIndex: 2
   roadLength: 40
   playerSpeed: 2
