@@ -15,7 +15,11 @@ EditorBuildSettings:
     path: Assets/Scenes/EasyLevel.unity
     guid: 2cb80aa4fc9195c46bccbab00838c498
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000,
+      guid: fd0529e4a537bf049a94305da7da3152, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 8a91b972c5a32cc48804c8f5f3c9008b,
       type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000,
+      guid: 527d39f849d1d004ab715dfa1befcc94, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000,
       guid: 1b362307a87fd024d9f61e875ff9ef54, type: 2}
